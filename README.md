@@ -1,4 +1,4 @@
-# Cloud Storage Migration Tool
+# Data Migration Base Project
 
 A Python-based cloud storage migration simulation tool built for learning enterprise data archival strategies and cloud storage management.
 
@@ -9,12 +9,14 @@ This project demonstrates building a comprehensive cloud storage management syst
 ## Features
 
 ### Core Functionality
+
 - **File Upload**: Upload individual files or entire directories to Google Cloud Storage
 - **File Download**: Download files with automatic duplicate handling (Windows-style naming)
 - **File Listing**: List bucket contents with detailed metadata (size, upload date, content type)
 - **Migration Simulation**: Batch process entire directories with progress tracking and error handling
 
 ### Key Capabilities
+
 - **Recursive Directory Processing**: Preserves folder structure during migration
 - **Error Resilience**: Continues processing even if individual files fail
 - **Progress Tracking**: Real-time feedback during batch operations
@@ -24,16 +26,21 @@ This project demonstrates building a comprehensive cloud storage management syst
 ## Technical Implementation
 
 ### Architecture
+
 - **Object-Oriented Design**: Clean `CloudStorageManager` class with focused methods
 - **Google Cloud Integration**: Direct API integration using `google-cloud-storage` library
 - **Error Handling**: Robust exception handling for network and file system operations
 - **Performance Monitoring**: Built-in timing for upload/download operations
 
 ### File Structure
+
 ```
 data_migration_learning/
 ├── src/
 │   └── cloud_storage.py       # Main application
+├── credentials/               # GCS Credentials (not tracked)
+├── data/                      # Data files to be migrated (not tracked)
+├── downloads/                 # Data files pulled from storage (not tracked)
 ├── .env                       # Environment variables (not tracked)
 ├── requirements.txt           # Python dependencies
 └── README.md                 # This file
@@ -42,6 +49,7 @@ data_migration_learning/
 ## Setup Instructions
 
 ### Prerequisites
+
 - Python 3.12+
 - Google Cloud Platform account
 - Google Cloud Storage bucket
@@ -49,12 +57,14 @@ data_migration_learning/
 ### Installation
 
 1. **Clone the repository**
+
    ```bash
    git clone https://github.com/sbblanke/data-migration-base-project.git
-   cd data_migration_learning
+   cd data-migration-base-project
    ```
 
 2. **Set up virtual environment**
+
    ```bash
    python -m venv venv
    venv\Scripts\activate  # Windows
@@ -63,12 +73,14 @@ data_migration_learning/
    ```
 
 3. **Install dependencies**
+
    ```bash
    pip install -r requirements.txt
    ```
 
 4. **Configure Google Cloud credentials**
-   - Create a service account in Google Cloud Console
+
+   - Create a service account in Google Cloud Console (https://console.cloud.google.com/)
    - Download the JSON key file to `credentials/`
    - Set the environment variable: `GOOGLE_APPLICATION_CREDENTIALS=credentials/your-key.json`
 
@@ -83,20 +95,23 @@ data_migration_learning/
 ## Usage
 
 ### Interactive Mode
+
 ```bash
 python src/cloud_storage.py
 ```
 
 Choose from:
+
 - **Upload** (`u`): Upload a single file
 - **Download** (`d`): Download a file from cloud storage
 - **List** (`l`): View all files in the bucket with metadata
 - **Migration** (`m`): Simulate full directory migration
 
 ### Example Output
+
 ```
-Using bucket: data-migration-bucket-1648
-Using project: data-migration-learning
+Using bucket: {bucket name}}
+Using project: {project name}
 Enter 'u' for upload, 'd' for download, 'l' for list, or 'm' for migration: m
 
 Processing file 1 of 5: email_sample_100.csv
@@ -115,12 +130,14 @@ Migration completed: 5 successful, 0 failed out of 5 files.
 This project demonstrates understanding of:
 
 ### Technical Skills
+
 - **Cloud Storage APIs**: Direct integration with Google Cloud Storage
 - **Python Development**: Object-oriented programming, file handling, error management
 - **Batch Processing**: Large-scale data migration workflows
 - **Performance Optimization**: Timing analysis and format comparison
 
 ### Business Applications
+
 - **Enterprise Data Archival**: Cost-effective strategies for reducing storage expenses
 - **Compliance Considerations**: Data retention and privacy law implications
 - **Migration Planning**: Risk assessment and workflow design
@@ -128,6 +145,7 @@ This project demonstrates understanding of:
 ## Real-World Application
 
 This learning project directly applies to enterprise scenarios where organizations need to:
+
 - Migrate data from expensive platforms (like Salesforce) to cost-effective cloud storage
 - Implement automated archival strategies
 - Maintain data accessibility while reducing storage costs
@@ -153,6 +171,7 @@ faker>=19.0.0
 ## Future Enhancements
 
 Potential improvements for production use:
+
 - Integration with business intelligence tools (Tableau, Power BI)
 - Advanced filtering and search capabilities
 - Automated retention policy enforcement
@@ -161,4 +180,4 @@ Potential improvements for production use:
 
 ---
 
-*This project was developed as part of a Python learning journey focused on solving real-world business challenges in enterprise data management.*
+_This project was developed as part of a Python learning journey focused on solving real-world business challenges in enterprise data management._
